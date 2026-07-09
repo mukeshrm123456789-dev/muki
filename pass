@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class PasswordValidation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter comma-separated passwords:");
+        String[] passwords = sc.nextLine().split(",");
+
+        for (String p : passwords) {
+            p = p.trim();
+
+            if (p.length() >= 6 && p.length() <= 12 &&
+                p.matches(".*[a-z].*") &&
+                p.matches(".*[A-Z].*") &&
+                p.matches(".*\\d.*") &&
+                p.matches(".*[$#@].*")) {
+
+                System.out.println(p);
+            }
+        }
+
+        sc.close();
+    }
+}
